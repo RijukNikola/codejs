@@ -23,3 +23,17 @@
 // ...that is:
 
 // "  *\n ***\n*****\n ***\n  *\n"
+
+//################ SOLUTION
+
+
+function diamond(n){
+	if (!n  || n < 0 || n % 2 === 0) return null;
+	let str = '';
+	for(let row = 1; row <= n; row++) {
+    for(let i = 0; i < Math.abs(Math.ceil(n/2) - row); i++) str += ' ';
+    for(let i = 0; i < n - Math.abs(Math.ceil(n/2) - row) * 2; i++) str += '*';      
+		str += '\n';
+  }
+  return str;
+}
