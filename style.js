@@ -1,3 +1,4 @@
+																// 1 \\
 // Jamie is a programmer, and James' girlfriend. She likes diamonds, and wants a diamond string from James. Since James doesn't know how to make this happen, he needs your help.
 
 // Task
@@ -37,3 +38,30 @@ function diamond(n){
   }
   return str;
 }
+
+																// 2 \\
+
+// Remove the duplicates from a list of integers, keeping the last ( rightmost ) occurrence of each element.
+
+// Example:
+// For input: [3, 4, 4, 3, 6, 3]
+
+// remove the 3 at index 0
+// remove the 4 at index 1
+// remove the 3 at index 3
+// Expected output: [4, 6, 3]
+
+// More examples can be found in the test cases.
+
+// Good luck!
+
+//################ SOLUTION
+
+function solve(arr) {
+	let reversArr = arr.reverse()
+	let newArr = [...new Set(reversArr)];
+	return newArr.reverse()
+ }
+
+
+
