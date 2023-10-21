@@ -1,4 +1,5 @@
-																// 1 
+	// 1 
+
 // Jamie is a programmer, and James' girlfriend. She likes diamonds, and wants a diamond string from James. Since James doesn't know how to make this happen, he needs your help.
 
 // Task
@@ -32,14 +33,14 @@ function diamond(n){
 	if (!n  || n < 0 || n % 2 === 0) return null;
 	let str = '';
 	for(let row = 1; row <= n; row++) {
-    for(let i = 0; i < Math.abs(Math.ceil(n/2) - row); i++) str += ' ';
+   for(let i = 0; i < Math.abs(Math.ceil(n/2) - row); i++) str += ' ';
     for(let i = 0; i < n - Math.abs(Math.ceil(n/2) - row) * 2; i++) str += '*';      
 		str += '\n';
   }
   return str;
 }
 
-																// 2 
+	// 2 
 
 // Remove the duplicates from a list of integers, keeping the last ( rightmost ) occurrence of each element.
 
@@ -64,7 +65,8 @@ function solve(arr) {
  }
 
 
- 															// 3 
+ 	// 3 
+
 //  An element in an array is dominant if it is greater than all elements to its right. You will be given an array and your task will be to return a list of all dominant elements. For example:
 
 //  solve([1,21,4,7,5]) = [21,7,5] because 21, 7 and 5 are greater than elments to their right. 
@@ -91,7 +93,8 @@ function solve(arr) {
 solve([104,18,37,9,36,47,28]) 
 
 
- 															// 4 
+ 	// 4 
+
 // Count how often sign changes in array.
 
 // result
@@ -111,6 +114,9 @@ solve([104,18,37,9,36,47,28])
 // 
 
 // catchSignChange(arr) == 2;
+
+
+ //################ SOLUTION
 
 function catchSignChange(arr) {
 	let counter = 0
@@ -135,3 +141,20 @@ function catchSignChange(arr) {
  catchSignChange([-47,84,-30,-11,-5,74,77])
  catchSignChange([1,-3,-4,0,5])
 
+// 5
+
+//  Determine the total number of digits in the integer (n>=0) given as input to the function. For example, 9 is a single digit, 66 has 2 digits and 128685 has 6 digits. Be careful to avoid overflows/underflows.
+
+// All inputs will be valid.
+
+
+ //################ SOLUTION
+
+
+ function digits(n) {
+	n = n.toString()
+	let arr = n.split('')
+	return arr.length
+ }
+
+ digits(128685)
