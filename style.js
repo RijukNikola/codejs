@@ -1,4 +1,4 @@
-																// 1 \\
+																// 1 
 // Jamie is a programmer, and James' girlfriend. She likes diamonds, and wants a diamond string from James. Since James doesn't know how to make this happen, he needs your help.
 
 // Task
@@ -39,7 +39,7 @@ function diamond(n){
   return str;
 }
 
-																// 2 \\
+																// 2 
 
 // Remove the duplicates from a list of integers, keeping the last ( rightmost ) occurrence of each element.
 
@@ -64,7 +64,7 @@ function solve(arr) {
  }
 
 
- 															// 3 \\
+ 															// 3 
 //  An element in an array is dominant if it is greater than all elements to its right. You will be given an array and your task will be to return a list of all dominant elements. For example:
 
 //  solve([1,21,4,7,5]) = [21,7,5] because 21, 7 and 5 are greater than elments to their right. 
@@ -89,3 +89,49 @@ function solve(arr) {
  };
 
 solve([104,18,37,9,36,47,28]) 
+
+
+ 															// 4 
+// Count how often sign changes in array.
+
+// result
+// number from 0 to ... . Empty array returns 0
+
+// example
+// const arr = [1, -3, -4, 0, 5];
+
+// 
+// | elem | count |
+// |------|-------|
+// |  1   |  0    |
+// | -3   |  1    |
+// | -4   |  1    |
+// |  0   |  2    |
+// |  5   |  2    |
+// 
+
+// catchSignChange(arr) == 2;
+
+function catchSignChange(arr) {
+	let counter = 0
+	let plus = false;
+	arr.forEach((i) => {
+	  if (arr[0] >= 0 && counter == 0) {
+		 plus = true;
+	  } else if (arr[0] < 0 && counter == 0) {
+		 plus = false;
+	  }
+	  if (i >= 0 && !plus) {
+		 plus = true;
+		 counter++
+	  } else if (i < 0 && plus) {
+		 plus = false;
+		 counter++;
+	  }
+	});
+	return counter
+ }
+  catchSignChange([-7,-7,7,0])
+ catchSignChange([-47,84,-30,-11,-5,74,77])
+ catchSignChange([1,-3,-4,0,5])
+
