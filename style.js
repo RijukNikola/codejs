@@ -78,19 +78,14 @@ function solve(arr) {
  //################ SOLUTION
 
 
- function solve(arr) {
-	let newArr = [];
-	for (let i = 0; i < arr.length; i++) {
-		let intermediateNumber = arr[i]
-		for (let k = i; k < arr.length; k++) {
-			if (intermediateNumber < arr[k]) {
-				intermediateNumber = arr[k]
-			}
-		}
-		newArr.push(intermediateNumber)
+ function solve(arr){
+	let res = [];
+	for (let i = 0; i < arr.length - 1; i++){
+	  if (arr[i] > Math.max(...arr.slice(i+1))){
+		 res.push(arr[i])
+	  }  
 	}
-	newArr.push(arr[arr.length-1])
-	return newArr = [...new Set(newArr)]
- }
+	return res.concat(arr[arr.length-1])
+ };
 
 solve([104,18,37,9,36,47,28]) 
