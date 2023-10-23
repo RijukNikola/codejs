@@ -29,15 +29,15 @@
 //################ SOLUTION
 
 function diamond(n) {
-  if (!n || n < 0 || n % 2 === 0) return null;
-  let str = "";
-  for (let row = 1; row <= n; row++) {
-    for (let i = 0; i < Math.abs(Math.ceil(n / 2) - row); i++) str += " ";
-    for (let i = 0; i < n - Math.abs(Math.ceil(n / 2) - row) * 2; i++)
-      str += "*";
-    str += "\n";
-  }
-  return str;
+	if (!n || n < 0 || n % 2 === 0) return null;
+	let str = "";
+	for (let row = 1; row <= n; row++) {
+		for (let i = 0; i < Math.abs(Math.ceil(n / 2) - row); i++) str += " ";
+		for (let i = 0; i < n - Math.abs(Math.ceil(n / 2) - row) * 2; i++)
+			str += "*";
+		str += "\n";
+	}
+	return str;
 }
 
 // 2
@@ -59,9 +59,9 @@ function diamond(n) {
 //################ SOLUTION
 
 function solve(arr) {
-  let reversArr = arr.reverse();
-  let newArr = [...new Set(reversArr)];
-  return newArr.reverse();
+	let reversArr = arr.reverse();
+	let newArr = [...new Set(reversArr)];
+	return newArr.reverse();
 }
 
 // 3
@@ -79,13 +79,13 @@ function solve(arr) {
 //################ SOLUTION
 
 function solve(arr) {
-  let res = [];
-  for (let i = 0; i < arr.length - 1; i++) {
-    if (arr[i] > Math.max(...arr.slice(i + 1))) {
-      res.push(arr[i]);
-    }
-  }
-  return res.concat(arr[arr.length - 1]);
+	let res = [];
+	for (let i = 0; i < arr.length - 1; i++) {
+		if (arr[i] > Math.max(...arr.slice(i + 1))) {
+			res.push(arr[i]);
+		}
+	}
+	return res.concat(arr[arr.length - 1]);
 }
 
 solve([104, 18, 37, 9, 36, 47, 28]);
@@ -115,23 +115,23 @@ solve([104, 18, 37, 9, 36, 47, 28]);
 //################ SOLUTION
 
 function catchSignChange(arr) {
-  let counter = 0;
-  let plus = false;
-  arr.forEach((i) => {
-    if (arr[0] >= 0 && counter == 0) {
-      plus = true;
-    } else if (arr[0] < 0 && counter == 0) {
-      plus = false;
-    }
-    if (i >= 0 && !plus) {
-      plus = true;
-      counter++;
-    } else if (i < 0 && plus) {
-      plus = false;
-      counter++;
-    }
-  });
-  return counter;
+	let counter = 0;
+	let plus = false;
+	arr.forEach((i) => {
+		if (arr[0] >= 0 && counter == 0) {
+			plus = true;
+		} else if (arr[0] < 0 && counter == 0) {
+			plus = false;
+		}
+		if (i >= 0 && !plus) {
+			plus = true;
+			counter++;
+		} else if (i < 0 && plus) {
+			plus = false;
+			counter++;
+		}
+	});
+	return counter;
 }
 catchSignChange([-7, -7, 7, 0]);
 catchSignChange([-47, 84, -30, -11, -5, 74, 77]);
@@ -146,9 +146,9 @@ catchSignChange([1, -3, -4, 0, 5]);
 //################ SOLUTION
 
 function digits(n) {
-  n = n.toString();
-  let arr = n.split("");
-  return arr.length;
+	n = n.toString();
+	let arr = n.split("");
+	return arr.length;
 }
 
 digits(128685);
@@ -170,11 +170,11 @@ digits(128685);
 //################ SOLUTION
 
 function sortByLength(array) {
-  array.sort(function (a, b) {
-    return a.length - b.length;
-  });
+	array.sort(function (a, b) {
+		return a.length - b.length;
+	});
 
-  return array;
+	return array;
 }
 
 sortByLength(["", "Moderately", "Brains", "Pizza"]);
@@ -191,13 +191,13 @@ sortByLength(["", "Moderately", "Brains", "Pizza"]);
 //################ SOLUTION
 
 function filter_list(l) {
-  let arr = [];
-  for (let i = 0; i < l.length; i++) {
-    if (typeof l[i] === "number") {
-      arr.push(l[i]);
-    }
-  }
-  return arr;
+	let arr = [];
+	for (let i = 0; i < l.length; i++) {
+		if (typeof l[i] === "number") {
+			arr.push(l[i]);
+		}
+	}
+	return arr;
 }
 filter_list([1, 2, "aasf", "1", "123", 123]);
 
@@ -220,27 +220,27 @@ filter_list([1, 2, "aasf", "1", "123", 123]);
 //################ SOLUTION
 
 function zombieShootout(zombies, range, ammo) {
-  let kill = 0;
-  if (zombies > ammo && range * 2 > ammo) {
-    if (range * 2 > ammo) {
-      kill = ammo;
-    } else {
-      kill = range * 2;
-    }
-    return `You shot ${kill} zombies before being eaten: ran out of ammo.`;
-  }
-  if (zombies <= ammo && range * 2 >= zombies) {
-    kill = zombies;
-    return `You shot all ${kill} zombies.`;
-  }
-  if (range * 2 < zombies) {
-    if (range * 2 > ammo) {
-      kill = ammo;
-    } else {
-      kill = range * 2;
-    }
-    return `You shot ${kill} zombies before being eaten: overwhelmed.`;
-  }
+	let kill = 0;
+	if (zombies > ammo && range * 2 > ammo) {
+		if (range * 2 > ammo) {
+			kill = ammo;
+		} else {
+			kill = range * 2;
+		}
+		return `You shot ${kill} zombies before being eaten: ran out of ammo.`;
+	}
+	if (zombies <= ammo && range * 2 >= zombies) {
+		kill = zombies;
+		return `You shot all ${kill} zombies.`;
+	}
+	if (range * 2 < zombies) {
+		if (range * 2 > ammo) {
+			kill = ammo;
+		} else {
+			kill = range * 2;
+		}
+		return `You shot ${kill} zombies before being eaten: overwhelmed.`;
+	}
 }
 
 zombieShootout(56, 23, 29);
@@ -264,21 +264,21 @@ zombieShootout(97, 18, 60);
 //################ SOLUTION
 
 function bingo(a) {
-  let arr = [2, 9, 14, 7, 15];
-  let counter = 0;
-  for (let i = 0; i < arr.length; i++) {
-    for (let k = 0; k < a.length; k++) {
-      if (arr[i] == a[k]) {
-        counter++;
-        break;
-      }
-    }
-  }
-  if (counter == 5) {
-    return "WIN";
-  } else {
-    return "LOSE";
-  }
+	let arr = [2, 9, 14, 7, 15];
+	let counter = 0;
+	for (let i = 0; i < arr.length; i++) {
+		for (let k = 0; k < a.length; k++) {
+			if (arr[i] == a[k]) {
+				counter++;
+				break;
+			}
+		}
+	}
+	if (counter == 5) {
+		return "WIN";
+	} else {
+		return "LOSE";
+	}
 }
 
 bingo([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
