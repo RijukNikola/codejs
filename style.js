@@ -1,4 +1,4 @@
-	// 1 
+// 1
 
 // Jamie is a programmer, and James' girlfriend. She likes diamonds, and wants a diamond string from James. Since James doesn't know how to make this happen, he needs your help.
 
@@ -28,19 +28,19 @@
 
 //################ SOLUTION
 
-
-function diamond(n){
-	if (!n  || n < 0 || n % 2 === 0) return null;
-	let str = '';
-	for(let row = 1; row <= n; row++) {
-   for(let i = 0; i < Math.abs(Math.ceil(n/2) - row); i++) str += ' ';
-    for(let i = 0; i < n - Math.abs(Math.ceil(n/2) - row) * 2; i++) str += '*';      
-		str += '\n';
+function diamond(n) {
+  if (!n || n < 0 || n % 2 === 0) return null;
+  let str = "";
+  for (let row = 1; row <= n; row++) {
+    for (let i = 0; i < Math.abs(Math.ceil(n / 2) - row); i++) str += " ";
+    for (let i = 0; i < n - Math.abs(Math.ceil(n / 2) - row) * 2; i++)
+      str += "*";
+    str += "\n";
   }
   return str;
 }
 
-	// 2 
+// 2
 
 // Remove the duplicates from a list of integers, keeping the last ( rightmost ) occurrence of each element.
 
@@ -59,41 +59,38 @@ function diamond(n){
 //################ SOLUTION
 
 function solve(arr) {
-	let reversArr = arr.reverse()
-	let newArr = [...new Set(reversArr)];
-	return newArr.reverse()
- }
+  let reversArr = arr.reverse();
+  let newArr = [...new Set(reversArr)];
+  return newArr.reverse();
+}
 
-
- 	// 3 
+// 3
 
 //  An element in an array is dominant if it is greater than all elements to its right. You will be given an array and your task will be to return a list of all dominant elements. For example:
 
-//  solve([1,21,4,7,5]) = [21,7,5] because 21, 7 and 5 are greater than elments to their right. 
+//  solve([1,21,4,7,5]) = [21,7,5] because 21, 7 and 5 are greater than elments to their right.
 //  solve([5,4,3,2,1]) = [5,4,3,2,1]
- 
+
 //  Notice that the last element is always included. All numbers will be greater than 0.
 //  More examples in the test cases.
- 
+
 //  Good luck!
- 
- //################ SOLUTION
 
+//################ SOLUTION
 
- function solve(arr){
-	let res = [];
-	for (let i = 0; i < arr.length - 1; i++){
-	  if (arr[i] > Math.max(...arr.slice(i+1))){
-		 res.push(arr[i])
-	  }  
-	}
-	return res.concat(arr[arr.length-1])
- };
+function solve(arr) {
+  let res = [];
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (arr[i] > Math.max(...arr.slice(i + 1))) {
+      res.push(arr[i]);
+    }
+  }
+  return res.concat(arr[arr.length - 1]);
+}
 
-solve([104,18,37,9,36,47,28]) 
+solve([104, 18, 37, 9, 36, 47, 28]);
 
-
- 	// 4 
+// 4
 
 // Count how often sign changes in array.
 
@@ -103,7 +100,7 @@ solve([104,18,37,9,36,47,28])
 // example
 // const arr = [1, -3, -4, 0, 5];
 
-// 
+//
 // | elem | count |
 // |------|-------|
 // |  1   |  0    |
@@ -111,35 +108,34 @@ solve([104,18,37,9,36,47,28])
 // | -4   |  1    |
 // |  0   |  2    |
 // |  5   |  2    |
-// 
+//
 
 // catchSignChange(arr) == 2;
 
-
- //################ SOLUTION
+//################ SOLUTION
 
 function catchSignChange(arr) {
-	let counter = 0
-	let plus = false;
-	arr.forEach((i) => {
-	  if (arr[0] >= 0 && counter == 0) {
-		 plus = true;
-	  } else if (arr[0] < 0 && counter == 0) {
-		 plus = false;
-	  }
-	  if (i >= 0 && !plus) {
-		 plus = true;
-		 counter++
-	  } else if (i < 0 && plus) {
-		 plus = false;
-		 counter++;
-	  }
-	});
-	return counter
- }
-  catchSignChange([-7,-7,7,0])
- catchSignChange([-47,84,-30,-11,-5,74,77])
- catchSignChange([1,-3,-4,0,5])
+  let counter = 0;
+  let plus = false;
+  arr.forEach((i) => {
+    if (arr[0] >= 0 && counter == 0) {
+      plus = true;
+    } else if (arr[0] < 0 && counter == 0) {
+      plus = false;
+    }
+    if (i >= 0 && !plus) {
+      plus = true;
+      counter++;
+    } else if (i < 0 && plus) {
+      plus = false;
+      counter++;
+    }
+  });
+  return counter;
+}
+catchSignChange([-7, -7, 7, 0]);
+catchSignChange([-47, 84, -30, -11, -5, 74, 77]);
+catchSignChange([1, -3, -4, 0, 5]);
 
 // 5
 
@@ -147,17 +143,15 @@ function catchSignChange(arr) {
 
 // All inputs will be valid.
 
+//################ SOLUTION
 
- //################ SOLUTION
+function digits(n) {
+  n = n.toString();
+  let arr = n.split("");
+  return arr.length;
+}
 
-
- function digits(n) {
-	n = n.toString()
-	let arr = n.split('')
-	return arr.length
- }
-
- digits(128685)
+digits(128685);
 
 // 6
 
@@ -173,19 +167,17 @@ function catchSignChange(arr) {
 
 // All of the strings in the array passed to your function will be different lengths, so you will not have to decide how to order multiple strings of the same length.
 
- //################ SOLUTION
+//################ SOLUTION
 
- function sortByLength (array) {
-	array.sort(function (a, b) {
-		return a.length - b.length;
-	 });
+function sortByLength(array) {
+  array.sort(function (a, b) {
+    return a.length - b.length;
+  });
 
-	return array
- };
+  return array;
+}
 
- sortByLength(["", "Moderately", "Brains", "Pizza"])
-
-
+sortByLength(["", "Moderately", "Brains", "Pizza"]);
 
 // 7
 
@@ -196,18 +188,18 @@ function catchSignChange(arr) {
 // filter_list([1,'a','b',0,15]) == [1,0,15]
 // filter_list([1,2,'aasf','1','123',123]) == [1,2,123]
 
- //################ SOLUTION
+//################ SOLUTION
 
- function filter_list(l) {
-	let arr = []
-	for (let i = 0; i < l.length; i++) {
-		if (typeof l[i]  === "number") {
-			arr.push(l[i])
-		}
-	} 
-	return arr
- }
- filter_list([1,2,'aasf','1','123',123])
+function filter_list(l) {
+  let arr = [];
+  for (let i = 0; i < l.length; i++) {
+    if (typeof l[i] === "number") {
+      arr.push(l[i]);
+    }
+  }
+  return arr;
+}
+filter_list([1, 2, "aasf", "1", "123", 123]);
 
 // 8
 
@@ -225,39 +217,37 @@ function catchSignChange(arr) {
 
 // Good luck! (I think you're going to need it.)
 
- //################ SOLUTION
+//################ SOLUTION
 
-function zombieShootout (zombies, range, ammo) {
-	let kill = 0
-	if (zombies > ammo && (range * 2) > ammo) {
-		if ((range * 2) > ammo ) {
-			kill = ammo
-		}else{
-			kill = (range * 2)
-		}
-		return `You shot ${kill} zombies before being eaten: ran out of ammo.`
-	}
-	if (zombies <= ammo && (range * 2) >= zombies) {
-		kill = zombies
-		return `You shot all ${kill} zombies.`
-	}
-	if ((range * 2) < zombies ) {
-		if ((range * 2) > ammo) {
-			kill = ammo
-		}
-		else{
-			kill = (range * 2)
-		}
-		return `You shot ${kill} zombies before being eaten: overwhelmed.`
-	}
+function zombieShootout(zombies, range, ammo) {
+  let kill = 0;
+  if (zombies > ammo && range * 2 > ammo) {
+    if (range * 2 > ammo) {
+      kill = ammo;
+    } else {
+      kill = range * 2;
+    }
+    return `You shot ${kill} zombies before being eaten: ran out of ammo.`;
+  }
+  if (zombies <= ammo && range * 2 >= zombies) {
+    kill = zombies;
+    return `You shot all ${kill} zombies.`;
+  }
+  if (range * 2 < zombies) {
+    if (range * 2 > ammo) {
+      kill = ammo;
+    } else {
+      kill = range * 2;
+    }
+    return `You shot ${kill} zombies before being eaten: overwhelmed.`;
+  }
 }
 
-zombieShootout(56, 23, 29)
-zombieShootout(50, 10, 8)
-zombieShootout(3, 10, 10)
-zombieShootout(100, 8, 200)
-zombieShootout(97, 18, 60)
-
+zombieShootout(56, 23, 29);
+zombieShootout(50, 10, 8);
+zombieShootout(3, 10, 10);
+zombieShootout(100, 8, 200);
+zombieShootout(97, 18, 60);
 
 // 9
 
@@ -271,34 +261,30 @@ zombieShootout(97, 18, 60)
 // G - 7
 // O - 15
 
- //################ SOLUTION
+//################ SOLUTION
 
+function bingo(a) {
+  let arr = [2, 9, 14, 7, 15];
+  let counter = 0;
+  for (let i = 0; i < arr.length; i++) {
+    for (let k = 0; k < a.length; k++) {
+      if (arr[i] == a[k]) {
+        counter++;
+        break;
+      }
+    }
+  }
+  if (counter == 5) {
+    return "WIN";
+  } else {
+    return "LOSE";
+  }
+}
 
- function bingo(a) {
-	let arr = [2,9,14,7,15];
-	let counter = 0;
-		for (let i = 0; i < arr.length; i++) {
-			for (let k = 0; k < a.length; k++) {
-				if (arr[i] == a[k]) {
-					counter++
-					break;
-				}
-			}
-		}
-		if (counter == 5) {
-			return "WIN"
-		}
-		else{
-			return "LOSE"
-		}
- }
-
- bingo([1,2,3,4,5,6,7,8,9,10])
- bingo([21,13,2,7,5,14,7,15,9,10])
-
+bingo([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+bingo([21, 13, 2, 7, 5, 14, 7, 15, 9, 10]);
 
 // 10
-
 
 // Prince Arthas needs your help! Mal'ganis has spread an infection amongst the Stratholme citizens, and we must help Arthas prevent this infection from spreading to other parts of the Kingdom.
 
@@ -318,3 +304,41 @@ zombieShootout(97, 18, 60)
 // You will always be given a valid string.
 // You won't be provided any empty strings.
 // Good luck and for the Alliance!
+
+
+//################ SOLUTION
+
+function purifyTheStratholme(s) {
+	const houses = s.split(" ");
+
+	function isInfected(citizen) {
+		return citizen === "i" || citizen === "I";
+	}
+
+	const cleanHouses = houses.map((house) => {
+		const cleanHouse = [];
+		let isHouseInfected = false;
+
+		for (let i = 0; i < house.length; i++) {
+			if (isInfected(house[i])) {
+				if (!isHouseInfected) {
+					cleanHouse.pop();
+					isHouseInfected = true;
+				}
+
+				while (i < house.length && isInfected(house[i])) {
+					i++;
+				}
+			} else {
+				cleanHouse.push(house[i]);
+				isHouseInfected = false;
+			}
+		}
+
+		return cleanHouse.join("");
+	});
+
+	return cleanHouses.join(" ");
+}
+
+purifyTheStratholme("Pineapple pizza is delicious");
