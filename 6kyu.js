@@ -1,4 +1,4 @@
-// 1
+c
 
 // You are writing a chat room app for your company.
 
@@ -86,3 +86,38 @@ function generateChatRoomNames(users) {
 
 
 generateChatRoomNames(["Joe Bloggs", "John Smith", "Jane Doe", "Jane Bloggs"]);
+
+// 2
+
+// There will always be only one integer that appears an odd number of times.
+
+// Examples
+// [7] should return 7, because it occurs 1 time (which is odd).
+// [0] should return 0, because it occurs 1 time (which is odd).
+// [1,1,2] should return 2, because it occurs 1 time (which is odd).
+// [0,1,0,1,0] should return 0, because it occurs 3 times (which is odd).
+// [1,2,2,3,3,3,4,3,3,3,2,2,1] should return 4, because it appears 1 time (which is odd).
+
+//################ SOLUTION
+
+
+function findOdd(A) {
+	let namber = [...new Set(A)]
+	let thisIsTheSameNumber
+	let counter = 0
+	for (let i = 0; i < namber.length; i++) {
+		for (let k = 0; k < A.length; k++) {
+			if (namber[i] === A[k]) {
+				counter++
+			}
+		} if (counter % 2 !== 0) {
+			thisIsTheSameNumber = namber[i]
+			break 
+		}
+		
+	}
+	return thisIsTheSameNumber
+ }
+
+
+ findOdd([20,1,-1,2,-2,3,3,5,5,1,2,4,20,4,-1,-2,5])
