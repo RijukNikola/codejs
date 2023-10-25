@@ -136,3 +136,27 @@ findOdd([20,1,-1,2,-2,3,3,5,5,1,2,4,20,4,-1,-2,5])
 
 
 //################ SOLUTION
+
+
+
+function spinWords(string) {
+	let answer = [];
+	string = string.split(" ")
+	let transformedArray = string.map((element) => {
+		return [element];
+	});
+	for (let i = 0; i < transformedArray.length; i++) {
+		for (let k = 0; k < transformedArray[i].length; k++) {
+			if (transformedArray[i][k].length >= 5) {
+				let reversedString = transformedArray[i][k].split("").reverse().join("")
+				answer.push(reversedString)
+			} else {
+				answer.push(transformedArray[i][k])
+			}
+		}
+	}
+
+	return answer.join(" ");
+}
+
+spinWords("Just kidding there is still one more")
