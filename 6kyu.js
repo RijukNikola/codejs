@@ -175,6 +175,7 @@ spinWords("Just kidding there is still one more")
 // ["Alex", "Jacob", "Mark", "Max"]  -->  "Alex, Jacob and 2 others like this"
 // Note: For 4 or more names, the number in "and 2 others" simply increases.
 
+//################ SOLUTION
 
 function likes(names) {
 	if (names.length === 0) {
@@ -200,3 +201,30 @@ function likes(names) {
 // If a value is present in b, all of its occurrences must be removed from the other:
 
 // arrayDiff([1,2,2,2,3],[2]) == [1,3]
+
+//################ SOLUTION
+
+function arrayDiff(a, b) {
+	let transformedArray = [];
+	if (a.length === 0) {
+		return [];
+	}
+	if (b.length === 0) {
+		return a;
+	}
+	for (let i = 0; i < a.length; i++) {
+		let isDifferent = true;
+		for (let k = 0; k < b.length; k++) {
+			if (a[i] === b[k]) {
+				isDifferent = false;
+				break;
+			}
+		}
+		if (isDifferent) {
+			transformedArray.push(a[i]);
+		}
+	}
+	return transformedArray;
+}
+
+arrayDiff([1, 2, 3], [1, 2]);
