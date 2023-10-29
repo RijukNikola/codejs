@@ -112,15 +112,15 @@ function findOdd(A) {
 			}
 		} if (counter % 2 !== 0) {
 			thisIsTheSameNumber = namber[i]
-			break 
+			break
 		}
-		
+
 	}
 	return thisIsTheSameNumber
 }
 
 
-findOdd([20,1,-1,2,-2,3,3,5,5,1,2,4,20,4,-1,-2,5])
+findOdd([20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5])
 
 
 // 3
@@ -237,3 +237,30 @@ arrayDiff([1, 2, 3], [1, 2]);
 // [2, 4, 0, 100, 4, 11, 2602, 36] -->  11 (the only odd number)
 
 // [160, 3, 1719, 19, 11, 13, -21] --> 160 (the only even number)
+
+//################ SOLUTION
+
+
+function findOutlier(integers) {
+	let answerOdd = "";
+	let answerOnly = "";
+	let conmter = 0
+	for (let i = 0; i < integers.length; i++) {
+		if (integers[i] % 2 === 0) {
+			answerOnly = integers[i]
+			conmter = conmter + 1
+		} else {
+			answerOdd = integers[i]
+			conmter = conmter - 1
+		}
+
+	} if (conmter >= 0) {
+		return answerOdd;
+	} else {
+		return answerOnly;
+	}
+}
+
+findOutlier([194164677,60511777,176440559,185868678,-78895983,-135863659])
+findOutlier([1, 2, 3])
+findOutlier([0, 1, 2])
