@@ -278,3 +278,24 @@ findOutlier([0, 1, 2])
 // "Indivisibilities" -> 2 # 'i' occurs seven times and 's' occurs twice
 // "aA11" -> 2 # 'a' and '1'
 // "ABBA" -> 2 # 'A' and 'B' each occur twice
+
+function duplicateCount(text){
+	let counter = 0;
+	let result = 0
+	text = text.toLowerCase();
+	let newString = [...new Set(text)].join('');
+		for (let i = 0; i < newString.length; i++) {
+			for (let k = 0; k < text.length; k++) {
+				if (newString[i] === text[k]) {
+					counter++
+				}
+			}
+			if (counter >= 2) {
+				result++
+			}
+			counter = 0
+		}
+	return result
+ }
+
+ duplicateCount("Indivisibilities")
