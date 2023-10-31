@@ -346,3 +346,28 @@ persistence(39)
 // Assertion messages may be unclear about what they display in some languages. If you read "...It Should encode XXX", the "XXX" is the expected result, not the input!
 
 //################ SOLUTION
+
+
+function duplicateEncode(word){
+	word = word.toLowerCase();
+	let counter = 0;
+	let newString = []
+
+		for (let i = 0; i < word.length; i++) {
+			for (let k = 0; k < word.length; k++) {
+				if (word[i] === word[k]) {
+					counter++
+				}
+			}
+			if (counter >= 2) {
+				newString.push(")")	
+			}
+			else{
+				newString.push("(")
+			}
+			counter = 0
+		}
+
+	return newString.join('')
+}
+duplicateEncode("Success")
