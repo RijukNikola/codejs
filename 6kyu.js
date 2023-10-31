@@ -279,6 +279,8 @@ findOutlier([0, 1, 2])
 // "aA11" -> 2 # 'a' and '1'
 // "ABBA" -> 2 # 'A' and 'B' each occur twice
 
+//################ SOLUTION
+
 function duplicateCount(text){
 	let counter = 0;
 	let result = 0
@@ -309,3 +311,24 @@ function duplicateCount(text){
 // 39 --> 3 (because 3*9 = 27, 2*7 = 14, 1*4 = 4 and 4 has only one digit)
 // 999 --> 4 (because 9*9*9 = 729, 7*2*9 = 126, 1*2*6 = 12, and finally 1*2 = 2)
 // 4 --> 0 (because 4 is already a one-digit number)
+
+//################ SOLUTION
+
+function persistence(num) {
+	let sum = [...num.toString()]
+	let result = 1
+	let counter = 0
+	
+	while (1 < sum.length ){
+	for (let i = 0; i < sum.length; i++) {
+		result = result * sum[i]
+		
+	}
+	sum = [...result.toString()]
+	result = 1
+	counter++
+}
+   return counter
+}
+
+persistence(39)
