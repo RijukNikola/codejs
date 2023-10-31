@@ -386,3 +386,22 @@ duplicateEncode("Success")
 // ""  -->  ""
 
 //################ SOLUTION
+
+
+function order(words){
+	let element = ''
+	let result = []
+	words = words.split(' ');
+
+	for (let i = 0; i < words.length; i++) {
+		for (let k = 0; k < words[i].length; k++) {
+			if (isFinite(words[i][k]) === true) {
+				result[words[i][k] - 1] = words[i]
+			}
+		}
+		
+	}
+	return result.join(' ')
+}
+
+	order("is2 Thi1s T4est 3a")
